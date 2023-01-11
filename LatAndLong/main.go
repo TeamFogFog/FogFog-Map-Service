@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -114,6 +113,5 @@ func main() {
 				log.Panic(er)
 			}
 		}
-		fmt.Println()
 	}
 }
