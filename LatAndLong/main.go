@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -96,6 +97,14 @@ func main() {
 				log.Panic(e)
 			}
 			// fmt.Println(resParse)
+
+			meta := resParse["meta"]
+			totalCount := meta.(map[string]interface{})["totalCount"]
+
+			if totalCount == float64(0) {
+				fmt.Println(address)
+				continue
+			}
 
 			addresses := resParse["addresses"]
 			addressResult := addresses.([]interface{})[0]
